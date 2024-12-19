@@ -1,7 +1,7 @@
 Here's a comprehensive guide to prepare for senior frontend engineer interviews, especially for top tech companies:
 Technical Preparation:
 
-1.Core Technical Skills:
+1. Core Technical Skills:
 
   Master JavaScript deeply (ES6+, advanced concepts),
   Strong React.js proficiency,
@@ -12,7 +12,7 @@ Technical Preparation:
   Responsive design principles,
   Web accessibility standards
 
-2.Frontend Interview Preparation Websites:
+2. Frontend Interview Preparation Websites:
 
   Frontend Masters,
   LeetCode (frontend-specific coding challenges),
@@ -20,7 +20,7 @@ Technical Preparation:
   Codecademy Pro Interview Path,
   AlgoExpert
 
-3.Technical Interview Topics to Focus:
+3. Technical Interview Topics to Focus:
 
   Data Structures and Algorithms,
   System Design for Frontend,
@@ -31,14 +31,14 @@ Technical Preparation:
   State Management Patterns
 
 
-4.Interview Practice Platforms:
+4. Interview Practice Platforms:
   
   InterviewBit,
   Pramp (mock interviews),
   Interview Cake,
   System Design Primer on GitHub
 
-5.Recommended Study Plan:
+5. Recommended Study Plan:
 
   Strengthen core JavaScript knowledge,
   Build complex frontend projects demonstrating advanced skills,
@@ -49,7 +49,7 @@ Technical Preparation:
   Contribute to open-source projects
 
 
-6.Books to Read:
+6. Books to Read:
 
   "Eloquent JavaScript",
   "You Don't Know JS" series,
