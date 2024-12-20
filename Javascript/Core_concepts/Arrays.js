@@ -4,6 +4,8 @@ const arr = [1,2,3]
 
 const arr1 = new Array(1,2,3);
 
+
+
 // push method of array returns length of an array
 const lengthArr = arr.push(5); 
 console.log(lengthArr); // 4
@@ -17,6 +19,8 @@ arr.indexOf(1); // 0 returns the index of the element and if not present returns
 arr.includes(1) // true , returns true if element present in the array
 arr.includes('1') // false  - , performs strict checking
 //includes works for both string and array 
+
+arr[3] = 8;// you can simply add an element at 3 index like this
 
 
 

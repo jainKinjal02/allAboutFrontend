@@ -14,7 +14,14 @@
 // single line comment 
 /*  multi line comment */ 
 
-// typeof(firstName)  - gives datatype of a variable
+// typeof(firstName)  - gives datatype of a variable NOTE: typeof me o small hota hai or indefOf function me O big hota hai
 // typeof undefined is undefined
 // typeof null/array - object
-//typeof Nan - Number
+//typeof Nan - Number , 
+//Nan is a special value which indicated some invalid numeric operation like 'hello'/2 ;
+
+function greet(name, fName){
+    console.log(name + ' '+ fName);
+}
+
+greet("kinjal"); // kinjal undefined since every variable is undefined by default , second arg not given in call

@@ -6,5 +6,18 @@ JS - adds functionality
 HTML - add context /structure of page
 CSS - make them beautiful, adds style
 
-JS release and versions - till ES5 --> old JS - called ecmascript
+JS release and versions - till ES5 --> old JS -  ecmascript
 ES6 ---> till now -- biggest update - called as modern JS
+
+Ecmascript is a specification while Javascript is a programming language which confirms these specifications
+
+Where Does JS code run ?
+It was originally designed to run only in browser, so every browser has a js engine to run Js code. 
+Browser : JS engine
+Chrome : V8
+Firefox: spiderMonkey
+Once an engineer Ryan Dahl took open source chrome Js engine And embedded in a C++ program called Node.
+Node is a c++ program which has google's V8 java engine. SO, JS code can be run in a browser or in  node browser.
+Node provide a runtime env for JS code execution.
+
+writing JS , css and html in all dedicated separate files, this terminology is called as separation of concerns
