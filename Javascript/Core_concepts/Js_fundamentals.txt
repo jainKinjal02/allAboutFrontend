@@ -1,0 +1,10 @@
+1. Js is high level, object oriented , multi-level, programming language.
+2. It is flexible and versatile. Follows both imperative and declarative approach.
+3. Js runs inside the browser , it can also run outside the browser using node - backend apps
+
+JS - adds functionality
+HTML - add context /structure of page
+CSS - make them beautiful, adds style
+
+JS release and versions - till ES5 --> old JS - called ecmascript
+ES6 ---> till now -- biggest update - called as modern JS
