@@ -1,0 +1,23 @@
+1. everything in JS happens inside an execution context
+2. In JavaScript, the execution context is an abstract concept that defines the environment within which JavaScript code is executed
+3. consist of two parts variable environment(memory) and thread of execution
+
+4.variable env - all variables and functions are stored as key- value pairs
+5. thread of exec - place where code is executed one line at a time
+
+6.NOTE: JS is a  synchronous single threaded language , means , can only execute one command at a time -- in a specific order one after another.
+
+Question. How does JS engine works ? Or What happens in a JS program ?
+
+answer. when you run a js code, a global execution context is created. It takes place in 2 phases.
+1. Memory creation phase - allocating memory to all vars and funcs inside the global space. Allocated vars with undefined and stores functions whole
+2. Code execution phase - control goes line by line, when a func is invoked, a local execution context is created for that functions
+    Returns takes back control to global execution context
+
+After completion of program, GEC is deleted
+
+To manage this whole execution context thing, JS engine has a callstack.
+
+Call Stack - maintains the order of execution of execution ps execution contexts
+alternative names - execution context stack, program stack, control stack, runtime stack, machine stack
+
