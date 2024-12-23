@@ -44,3 +44,10 @@ switch(day) {
 // condition aoperators - tertiary operators
 // it always has three parts , one condition , next is true case nd false case
 let isAge = age >= 18 ? console.log('yes') : console.log('no');
+
+// comparing two objects will always give false both in strict and loose comprison because they are compared based on their references 
+// both will have different memory location
+x = new String("John");
+y = new String("John");
+x === y // false
+x == y // false
