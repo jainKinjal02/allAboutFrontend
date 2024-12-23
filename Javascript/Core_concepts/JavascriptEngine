@@ -20,3 +20,5 @@ JS can behave as interpreetd as well as compiled language depending upon JS engi
 Most browser uses both interpreter and compiler
 
 JS is just in time compiltion - uses both interpretion and compiler
+
+JS code --> Parser --> AST ---> Interpreter(ignition) along with compiler (turbofan)[optimized m/c code] ---> JIT -- excuted byte code
