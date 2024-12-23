@@ -19,3 +19,25 @@ The event loop is a fundamental part of the JavaScript runtime environment, part
 
 - **Non-Blocking**: By using the event loop, JavaScript can handle long-running or delayed operations without blocking other code execution.
 - **Concurrency**: Asynchronous callbacks provide a way to perform many tasks concurrently while avoiding the complexities of multithreading.
+
+
+----------------
+Ques. Can we custom define a way to consider event loop to take callbacks from callback queue instead of microtask queue ?
+    
+    ans: 
+    
+    The main difference between callbacks from **`setTimeout`**/DOM APIs and deferred functions revolves around their triggering conditions and usage contexts:
+    
+    1. **Callbacks from `setTimeout`/DOM APIs**:
+        - These callbacks are scheduled to run after a specific time interval (**`setTimeout`**) or in response to user interactions or other events (DOM APIs).
+        - The execution of these callbacks is dependent on the event loop and timing mechanisms.
+    2. **Deferred Functions**:
+        - Deferred functions are usually associated with promises or similar constructs.
+        - They are executed only after a certain asynchronous operation is completed, like the resolution or rejection of a promise.
+        - The purpose is to defer the execution until the relevant data or condition is ready.
+    
+    In essence, **`setTimeout`**/DOM API callbacks are controlled by time or user-driven events, while deferred functions are linked to the completion of asynchronous operations.
+    
+Ques. What comes inside microtask queue?
+    
+    ans: deferred callbacks functions
