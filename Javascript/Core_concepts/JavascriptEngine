@@ -1,0 +1,22 @@
+Js engine is the heart of JS runtime environment browser and Node js both have JS runtime and environment
+
+node js can run JS code outside the browser
+
+V8 in chrome as well as Node js
+
+first Js engine - spiderMonkey used in Mozilla firefox
+
+JS engines itself is piece of code
+
+JS engine architecture
+
+input JS code ---> parsing (code is broken down into tokens) --> AST abstract syntax tree ---> compilation ---> execution
+
+Compilation - whole code is compiled first and then executed after compilation , a optimized version of code is generated and then executed
+Interpretion - executing code line by line
+
+JS can behave as interpreetd as well as compiled language depending upon JS engine
+
+Most browser uses both interpreter and compiler
+
+JS is just in time compiltion - uses both interpretion and compiler
