@@ -30,4 +30,6 @@ function throttle(func, limit) {
   
   const log = () => console.log('Throttled!');
   window.addEventListener('scroll', throttle(log, 1000)); // Logs at most once every 1 second
+
+  // if flag is true then only make function call (next function call), created a closure here , this flag will not be initilized again and again
   
