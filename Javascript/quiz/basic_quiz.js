@@ -29,3 +29,7 @@ var obj = {
     f: 50
 }
 console.log(obj) ; // {f:50, s:50} 
+
+//the key differences between **`slice()`** and **`substring()`
+// `slice()`** allows the use of negative indices and doesn't swap indices if **`startIndex`** is greater than **`endIndex`**.
+// `substring()`** doesn't allow negative indices and swaps indices if **`startIndex`** is greater than **`endIndex`**.
