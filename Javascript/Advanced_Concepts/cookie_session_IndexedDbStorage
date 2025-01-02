@@ -1,0 +1,35 @@
+An HTTP cookie (web cookie, browser cookie) is a small piece of data that a server sends to a user's web browser. The browser may store the cookie and send it back to the same server with later requests. Typically, an HTTP cookie is used to tell if two requests come from the same browser—keeping a user logged in
+
+Cookies are mainly used for three purposes:
+
+1. Session management
+
+2. Logins, shopping carts, game scores, or anything else the server should remember
+
+3. Personalization 
+
+4. User preferences, themes, and other settings
+
+5. Recording and analyzing user behavior
+
+Cookies were once used for general client-side storage. But now modern storage APIs are now recommended.Modern APIs for client storage are the [Web Storage API] (`localStorage` and `sessionStorage`) and [IndexedDB].
+
+#Web Storage API
+
+The Web Storage API provides mechanisms by which browsers can store key/value pairs, in a much more intuitive fashion than using cookies.
+
+The two mechanisms within Web Storage are as follows:
+
+- `sessionStorage` maintains a separate storage area for each given origin that's available for the duration of the page session (as long as the browser is open, including page reloads and restores).
+    - Stores data only for a session, meaning that the data is stored until the browser (or tab) is closed.
+    - Data is never transferred to the server.
+    - Storage limit is larger than a cookie (at most 5MB).
+- `localStorage` does the same thing, but persists even when the browser is closed and reopened.
+    - Stores data with no expiration date, and gets cleared only through JavaScript, or clearing the Browser cache / Locally Stored Data.
+    - Storage limit is the maximum amongst the two.
+    
+#IndexedDB API
+    
+IndexedDB is a low-level API for client-side storage of significant amounts of structured data, including files/blobs. This API uses indexes to enable high-performance searches of this data. While Web Storage is useful for storing smaller amounts of data, it is less useful for storing larger amounts of structured data. IndexedDB provides a solution.
+    
+IndexedDB is a JavaScript-based object-oriented database. IndexedDB lets you store and retrieve objects that are indexed with a key.

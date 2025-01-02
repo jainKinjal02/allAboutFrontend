@@ -1,0 +1,9 @@
+### Model View Controller (MVC) architecture
+
+MVC, which stands for Model-View-Controller, is a software architectural pattern commonly used for designing user interfaces and web applications. It divides an application into three interconnected components, each with specific responsibilities:
+
+1. **Model**: The Model represents the application's data and business logic. It encapsulates the data and behavior of the application, including data validation, manipulation, and storage. The Model is responsible for managing the application state and responding to requests for data from the Controller.
+2. **View**: The View represents the presentation layer of the application, responsible for rendering the user interface and displaying data to the user. It receives data from the Model and presents it to the user in a format that is easy to understand and interact with. Views are typically HTML templates or user interface components.
+3. **Controller**: The Controller acts as an intermediary between the Model and the View, handling user input and updating the Model accordingly. It receives input from the user via the View, processes it, and invokes the appropriate methods on the Model to perform the necessary actions. The Controller also updates the View with the latest data from the Model.
+
+The MVC architecture promotes separation of concerns and modularity, making it easier to manage and maintain complex applications

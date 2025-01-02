@@ -1,0 +1,18 @@
+### Performance and Optimization Techniques in web :
+
+**Minification**: Minifying HTML, CSS, and JavaScript files by removing unnecessary whitespace, comments,
+
+**Compression**, **Optimized images**, **Lazy loading** 
+
+**Service Workers**: Implementing service workers enables offline caching and background synchronization, allowing web applications to function 
+even when the user is offline and improving performance by serving cached content
+
+**Use Js module bundlers - like web pack and parcel**
+
+**Debouncing and throttling** - to reduce the number of network calls
+
+**Memoization**
+
+### Performance and Optimization techniques in React:
+
+Virtual DOM, Functional Components and Hooks, Memoization, debouncing and throttling, lazy loading.

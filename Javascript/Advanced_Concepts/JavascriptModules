@@ -1,0 +1,34 @@
+# Javascript Modules
+
+JavaScript modules are a way to split the JavaScript code of a web application into separate, reusable pieces with their own enclosed scope.
+ Introduced in ECMAScript 6 (ES6), modules allow for easier maintenance, debugging, and testing of JavaScript code. Each module is a piece of code
+ that is executed once it is loaded.
+
+Key features and concepts of JavaScript modules include:
+
+1. **Export and Import:**
+    - Modules can export functions, objects, or primitive values to be used by other modules. This is done using the **`export`** keyword.
+    - Other modules can use these exports by importing them using the **`import`** keyword.
+
+2. **Encapsulation:**
+    - Each module has its own scope, meaning variables, functions, classes, etc., defined in a module are not visible to other modules unless they are 
+    explicitly exported.
+
+3. **File-Based:**
+    - Each module is typically associated with a file. One file corresponds to one module.
+
+4. **Top-Level `await` (ES2020):**
+    - Allows modules to act as async functions. With top-level **`await`**, modules can await resources, causing other modules that import them to wait 
+    before they start evaluating their body.
+
+5. **Strict Mode:**
+    - JavaScript modules automatically use strict mode, which catches common coding errors and "unsafe" actions (like gaining access to the global object).
+
+6. **Reusability:**
+    - Modules can be reused across different parts of an application. This reusability makes modules an ideal way to share code between projects.
+
+7. **Dependency Management:**
+    - Modules let you explicitly state the dependencies of your code, making it clear what external code your module needs to function.
+    
+8. **Native Browser Support:**
+    - Modern browsers support JavaScript modules natively. Modules can be loaded using the **`<script type="module">`** tag in HTML.

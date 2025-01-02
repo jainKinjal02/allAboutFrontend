@@ -1,0 +1,15 @@
+How Browser work when you search [google.com](http://google.com) or anything else ?
+
+When you type a URL like "google.com" into your browser's address bar and hit Enter, several steps occur behind the scenes to load the webpage:
+
+1. **DNS Lookup**: The browser first checks its local cache to see if it already knows the IP address associated with the domain name "google.com." If not found, it sends a DNS (Domain Name System) lookup request to a DNS server to resolve the domain name to an IP address.
+
+2. **TCP Handshake**: Once the IP address is obtained, the browser initiates a TCP (Transmission Control Protocol) connection with the server at that IP address. This involves a three-way handshake to establish a reliable connection between the client (browser) and the server.
+
+3. **HTTP Request**: After the TCP connection is established, the browser sends an HTTP (Hypertext Transfer Protocol) request to the server. This request contains information such as the requested resource (e.g., homepage), request method (e.g., GET), headers, and cookies.
+
+4. **Server Processing**: The server receives the HTTP request and processes it. In the case of "google.com," the server may generate an HTML page dynamically or retrieve a pre-existing HTML page from its file system or cache.
+
+5. **Response**: The server sends an HTTP response back to the browser. This response contains the requested content, along with metadata such as status codes, headers, and cookies.
+
+6. **Rendering**: The browser receives the HTTP response and begins to render the webpage. It parses the HTML content to construct the Document Object Model (DOM), which represents the structure of the webpage. CSS stylesheets and JavaScript files referenced in the HTML are also fetched and executed.

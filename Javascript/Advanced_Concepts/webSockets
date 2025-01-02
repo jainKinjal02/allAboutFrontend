@@ -1,0 +1,4 @@
+WebSockets provide a way for a web client and a server to form a persistent, bidirectional communication channel. 
+Unlike the traditional HTTP request-response model, which is unidirectional and disconnects after the server sends a response, 
+WebSockets allow for full-duplex communication. This means that both the client and the server can send messages to each other 
+independently and at any time, once the WebSocket connection is established

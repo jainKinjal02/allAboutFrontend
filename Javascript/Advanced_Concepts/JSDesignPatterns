@@ -1,0 +1,31 @@
+#Javascript Design patterns
+
+JavaScript design patterns are reusable solutions to commonly occurring problems in software design, specifically tailored for the JavaScript programming language. They are templates or best practices that a developer can use to solve issues related to software design and architecture. Design patterns help to write more organized and manageable code, and understanding them is key for developers to improve their coding skills and enhance software maintainability.
+
+Some commonly used JavaScript design patterns include:
+
+1. **Module Pattern:**
+    - Used for creating private and public encapsulated code. The module pattern utilizes closures, allowing for private and public methods 
+    and variables. This pattern is great for keeping the global scope clean and providing a structured way to organize code.
+2. **Prototype Pattern:**
+    - JavaScript uses prototypal inheritance. The prototype pattern focuses on creating an object that can be used as a blueprint for other objects through inheritance. This is more memory efficient and is fundamental in JavaScript object creation.
+3. **Singleton Pattern:**
+    - Ensures that a class has only one instance and provides a global point of access to it. It’s often used for managing resources like database connections.
+4. **Observer Pattern:**
+    - This pattern is useful for subscription-based models. It allows an object (known as a subject) to publish changes to its state and other objects (observers) listen to those changes. This pattern is widely used in implementing event handling systems.
+5. **Factory Pattern:**
+    - Used for creating objects. Instead of creating objects directly using the **`new`** operator, this pattern provides a way to create objects through a common interface. This is particularly useful when the exact type of the object to be created is determined at runtime.
+6. **Decorator Pattern:**
+    - Allows for adding new functionality to an object dynamically without altering its structure. This type of pattern is used extensively in JavaScript for extending functionality.
+7. **Command Pattern:**
+    - Encapsulates a command request as an object, thereby allowing users to parameterize clients with queues, requests, and operations.
+8. **MVC (Model-View-Controller) Pattern:**
+    - Although more of an architectural pattern, MVC is crucial in the structuring of web applications. It separates the application logic into three interconnected elements, allowing for efficient code organization and separation of concerns.
+9. **Revealing Module Pattern:**
+    - A variation of the Module pattern, it reveals only the properties and methods you want to be public while hiding the others. It maintains 
+    encapsulation and reveals certain components of an object.
+10. **Flux/Redux Pattern:**
+    - Commonly used in React applications, Redux (inspired by the Flux architecture from Facebook) provides a unidirectional data flow and a 
+    predictable state container for JavaScript apps.
+
+Understanding and implementing these design patterns can lead to more efficient, readable, and maintainable code, especially in complex web applications. They help developers to avoid reinventing the wheel and make it easier to communicate architectures and solutions among team members.
