@@ -237,3 +237,5 @@ createOrder(cart)
 function createOrder(cart){
    const pr = new Promise((resolve,reject)=>{
        if(!validateCart(cart)){
+
+       }})}
