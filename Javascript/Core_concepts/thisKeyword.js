@@ -53,3 +53,16 @@ const jonas = {
 const b = jonas.calAge;
 b(); // undefined
 // because this points to the object calling the method but here the object method is not called, its assigned , hence , this is undefined here
+
+// Object keys/literals are no blocks, they do not intoduce any scope (they are not block scoped)
+console.log(name); // prints nothing
+console.log(jonas.name) // Kinjal
+// does'nt mean  these are block scoped, it means they are globally scoped
+'use strict';
+const jonas = {
+    name: 'Kinjal',
+    greet: () => console.log(this.name)
+}
+jonas.greet() ; // undefined
+
+// hence best practice is never use arrow functions as method in objects
