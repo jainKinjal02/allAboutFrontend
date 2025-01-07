@@ -1,0 +1,16 @@
+Here's the text content from the image:
+
+In JavaScript, every object has a prototype, which acts as a template for that object. The prototype contains properties and methods that are shared among all instances of that object type. When you access a property or method of an object, JavaScript first looks for it on the object itself. If it doesn't find it, it looks at the object's prototype, and if it's not there, it continues up the prototype chain until it finds the property or reaches the end of the chain (usually the 'Object.prototype').
+
+Here's a breakdown:
+
+1. Prototype: The prototype of an object is essentially a "parent" object from which it inherits properties and methods. It's a reference to another object.
+
+2. Prototype Chain: In JavaScript, objects inherit properties and methods from their prototype, and prototypes themselves can have prototypes. 
+This creates a chain of objects linked by their prototypes, known as the prototype chain. When you try to access a property or method of an object, 
+JavaScript traverses this chain to find the property or method.
+
+3. Prototypal Inheritance: In JavaScript, objects can inherit properties and methods directly from other objects, without using classes. 
+This type of inheritance is called prototypal inheritance. When you create a new object, you can specify its prototype, and the new object 
+will inherit properties and methods from that prototype.
+
