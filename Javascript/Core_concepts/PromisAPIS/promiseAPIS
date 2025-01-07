@@ -1,0 +1,24 @@
+When we want to make multiple API calls parallelly then we need these Promise APIs.
+
+## Promise.all()
+takes array of promises, returns a single promise which is resolved if all the promises are resolved.
+Promise.all([p1,p2,p3]) , three parallel API calls
+returns an array of results of all resolved promises.
+In Promise.all() if any of the promises fail, it will return error immediately.
+
+Promise.allSettled()
+It will always give output with results of resolved promises and errors of rejected promises. Unlike promise.all() which quickly
+cancels if any of the one fails
+
+## Promise.race()
+as the name suggests, one who finishes will give the results.Hence , we ll always get a single value rather than an array of results.
+if any of the promise fails like after 2 seconds , p3 fails , it will return the (error)
+Basically , it returns the result of first settled promise  - it can be rejected or resolved.
+
+### Promise.any() — success seeking race
+wait for first fullfill - success
+what if all the three fails,
+returns aggregate error , array of all the three errors.
+
+
+check out all images to understand better
