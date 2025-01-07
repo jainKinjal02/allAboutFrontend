@@ -236,3 +236,40 @@ const pr = new Promise((res, rej) => {
 
 // ------------------------------------------------------------------------------------------------------------------------
 // Writing fetch with async await
+const API_URL = 'https://api.github.com/users/jainKinjal02';
+
+async function handlePromisewithAsyncAwait() {
+    const data = await fetch(API_URL);
+    //fetch returns promise
+    const jsonValue = await data.json(); // json also returns promise
+    console.log(jsonValue);
+}
+
+handlePromisewithAsyncAwait()
+
+// ------------------------------------------------------------------------------------------------------------------------
+//### How to handle errors in async await
+// Using try and catch
+const API_URL = 'https://api.githb.com/users/jainKinjal02';
+
+async function handlePromisewithAsyncAwait() {
+    try {
+        const data = await fetch(API_URL);
+        //fetch returns promise
+        const jsonValue = await data.json(); // json also returns promise
+        console.log(jsonValue);
+    } 
+    catch(err) {
+        console.log(err);
+    }
+}
+
+handlePromisewithAsyncAwait()
+
+//changed url , error caught in first await, using catch we caught the error.
+// Which is better ?
+// async/await or then/catch
+// async/await is just syntactical sugar over then/catch
+// Its just the syntax play , behind the scenes it the native execution like then/catch
+// Its better to use async await because ewe dont have to deal with callbacks like we do in .then method then do promise chaining also.
+// also async/await is easier to read also.
