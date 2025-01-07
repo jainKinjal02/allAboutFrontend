@@ -1,0 +1,13 @@
+Question. Is JavaScript an OOPS language?
+
+Answer: JavaScript is indeed an object-oriented language, but it follows a prototype-based approach to OOP rather than the class-based approach found in traditional OOP languages like Java. Objects can inherit properties from other objects (prototypes), making JavaScript's OOP more flexible but also less structured compared to class-based systems.
+
+JavaScript is a multi-paradigm language that supports object-oriented programming (OOP), but it differs from classical OOP languages like Java or C++. JavaScript uses a prototype-based model for inheritance, unlike the class-based inheritance seen in traditional OOP languages.
+
+This means that objects can inherit properties and methods directly from other objects. The language offers OOP features such as encapsulation, inheritance, and polymorphism, but they are implemented differently compared to class-based OOP languages. JavaScript's flexible approach allows developers to use OOP principles while also employing other programming styles like functional programming.
+
+Even with the introduction of classes in ES6, JavaScript's approach to object-oriented programming (OOP) remains distinct from traditional class-based OOP languages like Java. In JavaScript:
+
+1. **Class Syntax is Syntactic Sugar**: ES6 classes are primarily syntactic sugar over JavaScript's existing prototype-based inheritance. The class syntax does not introduce a new object-oriented inheritance model to JavaScript. It's a cleaner, more convenient syntax to achieve what prototypes do.
+2. **Prototype-based Inheritance**: Underneath the class syntax, JavaScript still uses prototypes for inheritance. Objects inherit properties and methods from other objects, unlike class-based languages where classes define blueprints for objects.
+
