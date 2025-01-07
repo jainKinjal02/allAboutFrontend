@@ -27,3 +27,23 @@ k.calcAge(1957);//calling the function like
 k["calcAge"](1957);//calling the function in bracket notation
 
 k.calcAge(this.age); // will point to k object , variable which has refernece to its current object i.e. 34
+
+// ----------------------------------------------
+// Object.assign
+const target = {a: 1, b: 2};
+const source = {b: 4, c: 5};
+
+const returnedTarget = Object.assign(target, source);
+console.log(returnedTarget); // {a: 1, b: 2, c: 3}
+
+const first = {
+    fName: 'K',
+    lName: 'Jain',
+    family: [1,2,3]
+}
+
+const firstCopy = Object.assign({}, first);
+
+firstCopy.lName = "Bhul";
+console.log(firstCopy.lname) ; // Bhul;
+
