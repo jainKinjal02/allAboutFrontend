@@ -33,3 +33,18 @@ import { myFunction1 } from './myModule';
 // Bundlers like Webpack can convert between module systems
 
 // Both systems solve the same core problem: helping developers organize code into reusable, manageable pieces.
+
+
+// ----------------------------------------------------------------
+// ES6 Modules are significantly better for frontend development:
+
+// Advantages of ES6 Modules:
+
+// Native browser support in modern browsers
+// Static import allows better tree-shaking and optimization
+// More flexible syntax for named and default exports
+// Better performance in frontend bundlers (Webpack, Rollup)
+// Supports asynchronous loading
+// Works seamlessly with modern frontend frameworks (React, Vue, Angular)
+// CommonJS is primarily used in Node.js backend environments and requires transpilation for frontend use, making ES6 Modules the preferred choice for modern web development.
+
