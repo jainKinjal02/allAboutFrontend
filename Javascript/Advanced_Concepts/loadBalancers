@@ -1,0 +1,30 @@
+In JavaScript, load balancers are mechanisms that distribute network traffic or computational workloads across multiple resources to optimize performance, prevent server overload, and ensure high availability. They're typically used in:
+
+Server-side JavaScript (Node.js)
+
+Distribute incoming HTTP requests across multiple server instances
+Improve application scalability and fault tolerance
+Prevent any single server from being overwhelmed
+
+
+Client-side JavaScript
+
+Manage concurrent API requests
+Control asynchronous task execution
+Optimize resource utilization in web applications
+
+
+
+Common load balancing strategies include:
+
+Round-robin: Rotating requests sequentially
+Least connections: Sending requests to server with fewest active connections
+Weighted distribution: Allocating tasks based on server capacity
+
+While JavaScript doesn't have built-in load balancing, developers use libraries like:
+
+cluster module in Node.js
+pm2 process manager
+Third-party load balancing libraries
+
+Implementing a basic load balancer involves creating a distribution mechanism that routes requests or tasks efficiently across available resources.
