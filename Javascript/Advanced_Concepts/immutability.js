@@ -1,4 +1,5 @@
-// Immutability in JavaScript means creating new data structures instead of modifying existing ones. Here's a breakdown:
+// Immutability in JavaScript explained
+// it means creating new data structures instead of modifying existing ones. Here's a breakdown:
 // Core Principles:
 // 1. Original data remains unchanged
 // 2. Operations create new data copies
