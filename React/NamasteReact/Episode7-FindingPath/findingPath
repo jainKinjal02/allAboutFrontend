@@ -1,0 +1,152 @@
+We will implement routing in our web app.
+
+We ll use a Javascript routing library.
+
+## Important points about useEffect
+
+It takes two arguments - a callback function and a dependency array.
+
+When is this useEffect is called ?
+
+Ans. Whenever the component is rendered, it is called always And **this dependency array changes the behaviour of its render**
+
+Though dependency array is not mandatory.
+
+**If no dependency array ==⇒ useEffect is called on every render.**
+
+**If dependency array is empty = [] =⇒ useEffect is called on initial render(just once)**
+
+**eg. initial Header component loads —> useEffect is called but when on click of Login button — Header component renders again but useEffect is not called, all because dependency array is empty.**
+
+**And if we remove dependency array, useEffect will be called for every render**
+
+**And if dependency array has some value ==⇒ useEffect will only be called if the dependency changes**
+
+**Now the question is what can we have in dependency array** 
+
+**eg: If I put buttonText in dependency array , then everytime buttonText is updated , useEffect will be called.**
+
+![alt text](image.png)
+
+![alt text](image-1.png)
+
+So when I clicked Login button , useEffect will be rendered because buttonText value is getting updated. 
+
+Always remember useEffect is called after component is rendered.
+
+## Important points about useState
+
+1. Never define your state variables outside your component, you will get errors.
+2. Always try to define or call useState in the top of the component even before useEffect, this is to maintain consistency in the code.
+3. Also never define a state variable inside If else conditions, creates inconsistency in the programme
+4. Never create state variables inside for loop or inside a function.
+5. Basically state variables can only be creates inside functional components on higher level.
+
+## Routing in React - React Router
+
+we will user latest version 5 of React Router.
+
+Install react router in your project :
+
+```jsx
+npm install react-router-dom
+```
+
+![alt text](image-2.png)
+
+1. Create a routing configuration.
+    
+    This will be done in App.js . Import createBrowserRouter from react-router-dom an define the routes configuration which is a list of objects containing path and on the path - loading components
+    
+   ![alt text](image-3.png)
+    
+    Then we will import RouterProvider and render routerProvider with router = appRouter to enable Routing in our application.
+    
+   ![alt text](image-4.png)
+    
+
+See there are many routers in React but the best one to be used is **createBrowserRouter.**
+
+<aside>
+💡 in VS code type **rafce** and hit enter , it will automatically create a component just like we type html and it gives a body
+
+</aside>
+
+**Question** : What if user types in browser [localhost:1234/sdjdnjdn](http://localhost:1234/sdjdnjdn) — some random path, it will give error as 404 Not found- this error page is created by React router DOM then how it should be handled such if we dont want to a custom error page ?
+
+**ANswer**: Here for this we will define an errorElement which means for any incorrect route types after / then its an error page by React , in our case we ll then display a Error component.
+
+There is a hook given by react-router-DOM **useRouteError. Using this hook , we can have more info about the error and display more about the error.**
+
+This is how we can use it to display more specific detail for error.
+![alt text](image-5.png)
+## How to create children routes ?
+
+For example , I want my header to be Intact and keep changing the portions in the below page .
+
+Basically If I want about page then it should be like Header intact and then below about page (Body should be removed).
+
+To achieve this , we will create children routes.
+
+Children routes of AppLayout.
+
+So we will push different components to be displayed based on the children route.
+
+![alt text](image-6.png)
+
+Now how to define these conditions based on routes.
+
+Answer: using Outlet from React-router-DOM , we can define which component will be filled in the Outlet based on the route applied. If the route is -  / then Outlet will have Body to be displayed , if its /about then Outlet will have about component to be displayed.
+
+Keeping Header component intact here.
+
+![alt text](image-7.png)
+
+This Outlet will not be displayed in the HTML tree , in actual DOM this outlet will be displayed by the component that is being displayed. So , in DOM , it will always show Header — Body  or Header — About .
+
+Hence , this child routes are amazing.
+
+**Now lets link the buttons in Headers to these components .**
+
+One way and the simplest way is to use anchor tag like 
+
+![alt text](image-8.png)
+
+**This will work BUTTTTTTT…………**
+
+**In React , never use anchor tags to navigate to other page because it will refresh the entire page.**
+
+**IN REact , without refreshing the entire page , we can navigate to a new page without re-loading the whole page.**
+
+**We will use Link from react-router-DOM , it is similar to anchor tag , instead of href attribute , we have ‘to’ attribute.**
+
+![alt text](image-9.png)
+**The LINK will not refresh the whole page before navigating to a new page.That’s why it is very smooth, You can see it clearly.**
+
+<aside>
+💡 Anchor tag reloads the page while Link only refreshed the component .
+
+</aside>
+
+There are two types of Routing:
+
+1. **Client Side Routing** - making no network calls , it just Loaded About Us page , this is client side routing.
+2. **Server Side Routing** — make network call , html page is coming from server and showing data
+
+With **Link** above , we implemented client side routing..
+
+### Implement Feature - Click on Restaurant card - navigate to that rest’s page
+
+This will be done by dynamic routing.
+
+—Have dynamic route for every restaurant.
+
+—Added one more route in AppLayout configuration
+
+![alt text](image-10.png)
+
+**Rememeber - /restaurants if static and fixed.**
+
+**:restId is dynamic here , for every restaurant , restId will be different.**
+
+So routes will be unique for every restaurant.
