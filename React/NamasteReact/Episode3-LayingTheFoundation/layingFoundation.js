@@ -97,3 +97,96 @@ const root = ReactDOM.createElement(document.getElementById('root'));
 root.render(<HeadingComponent2/>);
 
 // Nested Functional Components:
+const Title = ()=> (
+    <h1 className="heading">
+        This is Title component
+    </h1>
+);
+
+// React component
+const HeadingComponent4 = () => (
+<div>
+    <h1>This is React functional component</h1>
+    <Title />
+</div>
+)
+
+const root1 = ReactDOM.createRoot(document.getElementById('root'));
+
+root1.render(<HeadingComponent4/>);
+// this above is also called component composition
+
+// fetching js variable inside jsx using curly braces{}
+const number = 233;
+const HeadingComponent4 = () => (
+    <div>
+        <h1>This is React functional component</h1>
+       {number}
+    </div>
+    )
+
+// we can write any javascript expression inside JSX using {} and it will work
+const number = 233;
+const HeadingComponent4 = () => (
+    <div>
+        <h1>This is React functional component</h1>
+       {number}
+       {45+45}
+       {console.log(number)} 
+    </div>
+    )
+    // This is React functional component -- screen pr
+    // 233
+    // 90
+    // 233 -- console me aayega 
+
+// putting react element into React component using {}
+const Title = ()=> (
+    <h1 className="heading">
+        This is Title component
+    </h1>
+);
+
+// React component
+const HeadingComponent4 = () => (
+<div>
+    <h1>This is React functional component</h1>
+   {title}
+</div>
+)
+// This is react functional component -- screen pr aayega 
+// This is title component -- screen pr aayega 
+
+// If you are putting or calling a react component or element before its is initialized , you ll get error because end of the day its a const javascript varibale 
+//and can’t be accessed before initialization (temporal dead zone)
+
+const Title = ()=> (
+    <h1 className="heading">
+        This is Title component
+        <HeadingComponent4/>    
+    </h1>
+); // this is wronggggggggg
+
+// React component
+const HeadingComponent4 = () => (
+<div>
+    <h1>This is React functional component</h1>
+   {title}
+</div>
+)
+// reference error - cannot access "HeadingComponent4" before initialization
+
+// You can also call a React component like this:
+const Title = () =>(
+    <h1 className="heading">
+        This is Title component
+    </h1>
+)
+// React component
+const HeadingComponent = () => (
+    <div>
+        <h1>This is react functional component</h1>
+        {Title()} 
+    </div>
+)
+// if fact Title is a js function only - this is also righttttt
