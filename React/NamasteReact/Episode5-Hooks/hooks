@@ -1,0 +1,173 @@
+Best practice is to make separate files for each component and importing them wherever we want to use them.
+
+Maintain a folder structure, add a src folder where all the React code is kept
+
+Move App.js file to src folder and create separate components.
+
+In src , create componenets folder.
+
+Create separate files like Header.js , Body.js , RestaurantCard.js 
+
+NOTE:*** some people also use extension .jsx for component files.Both are fine & good.
+
+We need to export the component to use it another component
+
+```jsx
+export default Header;
+```
+
+And then import the component wherever wants to use it.
+
+```jsx
+import Header from './components/Header';
+```
+
+Now both are fine , both will work 
+
+```jsx
+import Header from './components/Header.js';
+```
+
+Not necessary to write the extension, React will automaticaly treat it as JS file.
+
+Now , thta hardcoded data should be kept separately not in component file,
+
+Create a folder called utils inside src and make a file constants.js and add all URL using in src images .
+
+Also create a mockData.js file add the swiggyArray.
+
+Export them and import wherever you want to use.
+
+Now the folder structure will look like :
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/a9b76015-2c25-4ae4-b3a6-af53d187876a/f625609b-7f00-44ca-807a-df9c782b1ccc/Untitled.png)
+
+<aside>
+💡 There are two types of exports and two type of imports.
+
+</aside>
+
+<aside>
+💡 1. Default Export and default import — which we are using currently.
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/a9b76015-2c25-4ae4-b3a6-af53d187876a/7bfc43b5-bf07-4b39-ba95-8774de1fcb36/Untitled.png)
+
+but what is I am writing like this .
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/a9b76015-2c25-4ae4-b3a6-af53d187876a/cb76c8b4-b66f-4324-8ef6-d377e940dfb7/Untitled.png)
+
+This will throw error , we cannot have two export statements.This is so because by default we can only export one [thing.Here](http://thing.Here) comes another type of export i.e. **Named export.**
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/a9b76015-2c25-4ae4-b3a6-af53d187876a/885982a4-6e37-40c2-a37a-d6843f5fdb57/Untitled.png)
+
+</aside>
+
+Named Import :
+{ } —using
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/a9b76015-2c25-4ae4-b3a6-af53d187876a/36d47ec0-938e-4f94-91de-b1234eb247af/Untitled.png)
+
+Default Import :
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/a9b76015-2c25-4ae4-b3a6-af53d187876a/aea7b62d-56b6-4fcc-83f4-c88f4f2fef87/Untitled.png)
+
+No curly braces.
+
+NOTE:***we can export multiple things from the same file using **named export.**
+
+---
+
+---
+
+---
+
+SUMMARY :
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/a9b76015-2c25-4ae4-b3a6-af53d187876a/a996c92d-426f-4235-913a-71d6b2013895/Untitled.png)
+
+Always a good practice to keep components small and clean . You can achieve it by structuring different components and export and import them.
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+## React Hooks
+
+We ll make our app dynamic now.
+
+### Feature 1 : Add a button to get top rated restaurants
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/a9b76015-2c25-4ae4-b3a6-af53d187876a/6348fa60-b648-4913-a0f9-b1a905fc8cbd/Untitled.png)
+
+We get the updated list in console with rating > 4 but in UI , its not updated automatically.
+
+Now we ll make a state variable for the component.
+
+For this , we ll use React hook - **useState**
+
+React hooks are normal JS utility functions written by Facebook developers. To use them, we ll have to import them.
+
+Two important hooks :
+1. useState() -  this can be imported from “react” and can be imported as Names import.
+
+```jsx
+import {useState} from 'react';
+```
+
+1. useEffect () - 
+
+### useState:
+
+It maintains the state of your component.
+
+useState can be imported from ‘react’ as named import.
+
+define local state variable in an array as obj and a set function(to update the varibale obj , always use set -industry norm) and assign it to useState() hook.
+
+The useState hook will always have a default value of obj.
+
+In button - on click , we ll filter top restauarants and pass that updated list in set function — setListRestaurant(filteredList)- this is how it will update the UI.
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/a9b76015-2c25-4ae4-b3a6-af53d187876a/3b7aa12e-8502-4c9b-8754-2d9c074fba2a/Untitled.png)
+
+We can always modify the list or any data object using set function , it can’t be done directly in React.
+
+Now if we want to make the list i.e. obj here empty then — setListRestaurant([]) is correct.
+
+whatever value we are sending in set function sets the value of the obj.
+
+NOTE:***** Whenever a state variable updates , REACT re-renders the component.
+
+REACT is best at re-rendering. React is good at DOM manipulation.
+
+### How this re-rendering is done in REACT Or How React works behind the scenes ?
+
+1. React uses **reconciliation algorithm , this also is also known as React Fiber**
+2. We ll explain this with filtering top restaurants.
+3. The initial all restaurants being displayed in UI, on click of button to filter ,React will create a virtual DOM.
+4. **Virtual DOM is representation of actual DOM. It is basically object consists of all react elements** which are then converted into actual HTML elements in actual DOM.
+5. What is a **diff algorithm ?**
+    
+    It find the difference between the previous virtual DOM and updated virtual DOM. As user click on button to filter , the updated virtual DOM and previous virtual DOM will be compared , calculate the difference and then update the difference in the actual DOM , which is basically re-rendering in React.
+    
+6. In 2016, this new algorithm came out to update the DOM - Reconciliation.
+7. **React is therefore fast because it not compare the actual DOM or HTML elements but it compares Virtual DOMS which is nothing but objects , comparing objects is easier and then it re-renders the difference in actual DOM.**
+
+### Interview question - How React is faster ?
+
+### Ans: React performs efficient DOM Manipulation - how - with React reconciliation - explain the whole virtual DOM concept.
+
+React tracks local state varibles. Here , setListREstaurant function performs React reconciliation.
+
+<aside>
+💡 const [obj , setFunction] = useState([]); — useState returns an array. This is array destructuring.
+
+</aside>
