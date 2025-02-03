@@ -1,0 +1,187 @@
+To make the code ready for production , means to minify our code to remove comments , remove consoles etc.
+To push our code to production , we need to do a lot of processing like bundling , code splitting , chunking , image optimization etc.
+That’s what it is calling igniting the app — making the app or code ready to push to the production.
+
+Now what is **npm** ?
+npm does not stand for node package manager , go and check [npmjs.com](http://npmjs.com) (fun fact)
+On serious note , **npm** manages packages but does not stand for Node package Manager.
+**npm** behind the scenes work as node package manager.
+**Npm** basically is the repository of a number of packages.
+
+If we created the react app using create-react-app command then it automatically adds npm , now to do this manually , we ll add npm using command **npm init**
+Answer all following questions and press enter .
+
+A configuration file called package.json is created 
+![alt text](image.png)
+
+package.json will maintain and configure all packages installed and used in your app. You can track all the packages here.
+
+These packages are also called dependencies.
+**This is how npm is configured within project manually.**
+Now we can install different dependencies .
+1. First thing to be installed is a **bundler .** A bundler’s job is to bundle the entire project code and ship to the production. Eg. webpack , parcel.
+2. **create-react-app** command uses **webpack bundler** in the configured project.
+3. We ll use **Parcel** , configure it , its easy to use , Parcel will ignite our app. We ll install Parcel using npm.
+
+```jsx
+npm install -D parcel
+```
+
+💡 There are two type of dependencies/packages that can be installed:  **dev dependencies** (it means it is generally required in development phase only) and **normal dependencies**(it means these dependencies are used in production also ).
+
+💡 -D flag specify that parcel is dev dependency that we are installing that is only for development
+
+![alt text](image-1.png)
+
+We got parcel in dev dependencies , latest version is installed that is 2.10.3.
+
+💡 This sign ^ is **carat** which means if any minor upgrade version comes like 2.10.4 or 2.10.5 it will automatically upgrade it but if any major version comes like 3.0.0 then ^ will not upgrade it where as **tilda** ~ will upgrade the major version also.
+Its always a good practice to use ^ carat.
+
+**What is package.lock.json ?**
+Keeps track of exact version of the package being installed.
+For eg . for parcel it keeps exact version 2.10.3
+package.json can have carat or tilda or minor or major version upgrades.
+
+**What is node modules folder ?**
+Contain all installed package’s code from npm when we gave command npm install
+![alt text](image-2.png)
+
+We have a dependency installed but that dependency can also be dependednt on some other dpeendency or package , this is called **transitive dependency**.
+That’s why on installing parcel , it installed babel also in node modules because Parcel uses Babel also that’s transitive dependency.
+If you check in node modules , and check parcel or any other dependency, each package has its own package.json which shows it’s dependency , this is what we call is transitive dependency.
+![alt text](image-3.png)
+
+That’s why node modules is huge . So, this can’t be pushed to production or pushed to Git.
+
+**To add it in .gitignore**
+![alt text](image-4.png)
+
+**Push only package.json & package-lock.json to Git or production.**
+Using these files , just giving command **npm install** we can get the node modules back. This is what we actually do
+
+---
+
+---
+
+---
+
+---
+
+Now coming back to ignite the app using command 
+
+```jsx
+npx parcel index.html
+```
+
+index.html because its the source file
+
+![alt text](image-5.png)
+Now parcel has created a server and hosted our app on the server i.e. **localhost**.
+
+💡 npm: means installing and excuting
+
+💡 npx: means only executing the package not install the package
+
+
+**Another way to get React in our project other than CDN links is through npm**
+
+CDN links is not the preferred or right way to bring React into your app instead use NPM
+
+Also instead of making  extra API calls to these CDN links , use the React which is already installed in the node modules , also these CDN links URL needs to be changed if the React version updates but we dont have to take care of all these in NPM.
+
+![alt text](image-6.png)
+Now to install react using npm, give command :
+
+```jsx
+npm install react
+```
+
+Also install react dom
+
+```jsx
+npm install react-dom
+```
+
+Now since we do not gave -D flag , these are installed as normal dependencies
+
+![alt text](image-7.png)
+
+Now remove those CDN links script tags from index.html
+Now run the server using **npx parcel index.html** 
+**Get error : reference error : React is not defined**
+
+![alt text](image-8.png)
+Now **import react in app.js file from node modules**
+
+---
+
+---
+
+Again errors 
+
+![alt text](image-9.png)
+
+Browser scripts cannot have imports . This is so because we have normal <script> tag in index.html for reading App.js javascript file. This is considered as normal JS file and a normal JS file does not have imports or exports.
+
+So to fix this , specify type=”module” in script tag 
+
+```jsx
+<script type="module" src="./App.js">
+```
+
+```markdown
+# Parcel doing following things:
+- Dev build
+- Local Server
+- HMR = Hot Module Replacement
+- uses a file watching algorithm - written in C++ , as we do any change it tracks the change and builds at once and loads automatically on the server
+- Caching - faster builds , its caching things in .parcel-cache folder
+- Image optimization - most expensive thing is to load images in browser 
+- Minification of files for production build
+- Bundling 
+- Compress files
+- Consistent hashing 
+- Code splitting
+- differential bundling (support older browser) different bundle which can work with older browser versions also
+- diagnostics of the app
+- Error handling better
+-  HTTPS is also provided
+- Tree shaking - remove unused code
+- Different dev and production bundles
+```
+
+## System Design Interview Question above |^.
+
+
+💡 **Consistent Hashing ; ParcelJS utilizes a consistent hashing algorithm to generate unique filenames for cache busting**. This ensures that whenever you make changes to your code, the browser fetches the latest version from the server, eliminating the need for users to manually clear their browser
+
+
+**How Parcel is so fast ?**
+Because it has .parcel-cache , It caches everything , every small change to build faster.
+
+**How to build for production using Parcel ?**
+```jsx
+npx parcel build index.html
+```
+Before giving this command , in package.json the entry point mentioned is App.js and in the command we specify index.html , it will result in error . Hence, **Always remove this “main”: “App.js” from package.json when using Parcel.**
+
+![alt text](image-10.png)
+
+**Dist folder :** when parcel command is run , development build is created and stored in dist folder from where its loaded in the server.
+so when we build for production , it takes time to build in the dist folder.
+![alt text](image-11.png)
+**NOTE**: Add parcel-cache and dist in gitignore , because these can be generated automatically .
+
+**NOTE: Also no need to push node modules , because we are already giving package.json through that server will install its node modules through npm.**
+
+**BrowsersList**
+
+Tell project what all browser your app should support in , We can configure it in package.json
+
+![alt text](image-12.png)
+This means that it will definately work on these versions , does not at all mean that it will only work on these versions
+
+We can even mention country specific details also like “cover 95.5% in the U.S” etc etc.
+
+This episode basically covers the question How your app is fast , how it is built ?
