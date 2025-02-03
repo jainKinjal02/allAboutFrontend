@@ -1,0 +1,87 @@
+Always plan before building a React app
+**Always plan before building a React app**
+
+![alt text](image.png)
+
+A basic header with logo and links with CSS:
+![alt text](image-1.png)
+
+To give inline styling in React , we cant use style attribute directly , here in react we define a style jAvascript object (**styleCard**) and assign it to **style** attribute (inline)
+
+![alt text](image-2.png)
+Here, styleCard is nothing but a JS object with properties as keys.
+
+Or we can directly specify an object in style,
+
+![alt text](image-3.png)
+
+## Props
+Passing data to components
+props are just normal arguments to a function
+this is how it works :
+
+![alt text](image-4.png)
+
+1. pass any number of props
+2. Always use props
+3. Or without using word props , can directly use props by **destructuring it on the fly**
+
+![alt text](image-5.png)
+
+Can also be done by destructuring the passed props inside the component(not on fly method)
+![alt text](image-6.png)
+
+
+What is config driven UI ?
+
+Answer: Website driven by data , like it displays different offer discount cards in Mumbai and different in Delhi , we are not building diff websites for Mumbai and delhi , based on data the UI is displayed or configured.
+**Monitoring or controlling UI base don data coming from backend , this is latest practice being followed in every company.**
+
+Instead of passing whole data in the calling functional component, its better to store data in an Js object and then passing that Js object as a prop to the functional component.
+
+![alt text](image-7.png)
+
+resObj is the JS object being passed in functional component in the property name as resData and then props is destructured back to resData since its the property’s name , this is how we pass long or structured data to the functional component
+
+---
+
+---
+
+Now we will store all data in array of objects just like we get the data from API response over network
+
+Here **swiggyArray** is the array of objects —array of all restaurant objects which is then passed using simple Javascript map function into **RestaurantCard** functional component .
+
+We are destructuring the props data and passing onto the component.
+
+![alt text](image-8.png)
+
+This is how we loop in here inside { } braces because this is simple **Javascript**.
+
+This is how the UI looks :
+![alt text](image-9.png)
+
+But in console, we have an error ,
+![alt text](image-10.png)
+
+This is so because whenever you are looping , you must pass a unique key , key here is an reserved keyword 
+![alt text](image-11.png)
+
+**Why is it necessary to give a unique key ?**
+
+**It is because for example we have not specified keys to these restaurantCards and if a new restaurant card is added later at first place then React will not know that this is the new on since there is no unique identifier to recognize it ,hence , React will render all restaurant cards .**
+
+**To avoid this unnecessarily rendering of all cards, we specify a unique key to each card  so that if a new card comes then React will only render the new one since it will recognize the new key.**
+
+This is a huge optimization.
+
+Key will always be unique
+
+And if the data does not have any unique identifier then many people use index , as we are looping , we ll have index and that’s unique , Index is used as key here.
+
+![alt text](image-12.png)
+
+NOTE****: But that’s not correct , using index as key , React do not support it.
+
+Although it will work but not a good practice.
+
+If we dont have a unique ID then what will we do ? then ask backend to send unique id
