@@ -1,0 +1,187 @@
+# Episode 6 : Exploring the world
+
+# **Monolith Architecture:**
+
+A big single project having all together like API codebase , UI code , Authentication code , Database Connectivity code , SMS - notification written — all code in the same service.
+
+So even if I want to make a small change like changing the color of the button then I will have to built the whole project , compile it whole and deploy the whole project just for a small change. This is monolith architecture.
+
+# Microservice Architecture:
+
+All big companies are moving to microservice architecture. Just like in Wolken we have.
+
+In this , we have different services for different jobs.
+
+Example , backend service, UI service , authentication service etc. These are microservices that combine together and form a big app.
+
+This concept is known as **separation of concerns or single responsibility priciple.**
+
+With microservices architecture, we can have independent repos on github. All teams work on their own independent services.
+
+All these microservices talk to each other.
+
+We can have different tech stacks in different services. Like UI in React and backend in JAVA or Golang in Authentication.
+
+In Monolith, its one language like JAVA is used entirely.
+
+So in Monolith, there is multiple tech stacks.
+
+ALL these services interact through different [ports.  LIKE](http://ports.LIKE) react running on port 1234.
+
+and the backend will be running on some port 3452.
+
+## We ll see how to make API call in React — how UI service will interact with backend Service.
+
+Fetching data from backend - there are two approaches :
+
+1. As soon as page loads —> API call —→ Render UI (this might take 500ms for API to get data, we ll wait here).
+2. AS soon as page loads —> Render UI —> API call—> Re-render UI with fetched data.
+
+2nd approach is better because it gives better UX.This experience is better.  
+
+So , in React , we will follow second approach.
+
+### useEffect
+
+React hook
+
+It will be imported from react as a named import.
+
+**useEffect takes two arguments always. First argument is a callback function and second argument is a dependency array.**
+
+![alt text](image.png)
+
+This callback function is called after your component is rendered. When the body component is rendered, after rendering this useEffect ‘s callback function will be called. This is how useEffect works.
+
+When ever you want to do anything after rendering then write it inside useEffect’s callback function.
+
+![alt text](image-1.png)
+
+![alt text](image-2.png)
+
+**So for API call after rendering the page , we are using useEffect. We ll fetch the data inside our useEffect.**
+
+![alt text](image-3.png)
+
+Initially , we are rendering [] emptyarray in useState that is default , then in useEffect , we are calling API to fetch data and then inside fetchData , we are re-rendering with setListRestaurant() .
+
+This is what we discussed in the Second approach of API call.
+
+When you refresh the page, you will notice two renderings. One default data is first rendering and then another rendering with fetched data from the API call. If the length of obj is zero means empty data i.e. before API call , we will show **Loading….**
+
+
+💡 Always use optional chaining - its a good practice.
+
+![alt text](image-4.png)
+
+
+**IS showing a spinner a good practice ??**
+
+NO, right now it's not a good practice to show spinner, in the UI world , latest comes a concept called **Shimmer UI.**
+
+Its kind of like loading a fake page until gets data from API , or show a skeleton that user understands its loading. This gives a much better user experience.
+
+Eg. in Swiggy , when you refresh , it shows fake skeleton or fake cards. You can check that on Youtube also.
+![alt text](image-5.png)
+
+### Implementing Shimmer UI
+
+Create a Shimmer component add css
+
+![alt text](image-6.png)
+
+and display in Body component.
+
+![alt text](image-7.png)
+
+NOTE:**** we used this chrome extension to avoid CORS errors to use SWIGGY’s API in our project.
+![alt text](image-8.png)
+
+This Shimmer component rendering based on condition is called as **Conditional Rendering.**
+
+Conditional Rendering using Ternary Operator:
+
+![alt text](image-9.png)
+
+### Feature 2 : When we Click on Login , the button changes to Logout and when we click on Login , it changes to Logout .
+
+The feature will clear the concept of state change in depth.
+
+JS Code on click :
+
+![alt text](image-10.png)
+
+You see in the console , on click , **btnText** changed to Logout but the UI was not rendered.
+
+Now using useState hook , I will update the btnText .
+
+![alt text](image-11.png)
+
+Here , the UI renders Logout on clicking Login button wit useState Hook.
+
+![alt text](image-12.png)
+whenever state variable changes using set function , React will re-render the [component.](http://component.SO) So the changed value should always be passed to set function for re-rendering purpose.
+
+**QUESTION : Is he re-rendering the whole Header component or only the Login button?**
+
+ANSWER:  It will re-render the whole Header component. You can check by console.log
+
+![alt text](image-13.png)
+
+First render is Header loads now on clicking Login button , it turned into logout and logged again on console — Header Rendered.
+
+btnText is const defined, how the value is updated, its against the Javascript principles. —- NO , since this component is re-rendered once again, this btnText is newly defined now since we are calling Header function again, this is a new instance here. When Header function is called again , btnText is initialised with new value assigned.
+
+with diff algo , only Login button is changed — comparing existing virtual DOM with updated virtual DOM.
+
+---
+
+This is complete implementation of this feature.
+
+![alt text](image-14.png)
+<aside>
+💡
+
+In React, state variables play a crucial role in managing and controlling the dynamic behavior of a component. While you can use regular JavaScript variables to store and manage data, using React state has several advantages:
+
+1. **Reactivity:**
+    - When you update the state in React, it automatically triggers a re-render of the component. This reactivity ensures that the user interface reflects the latest data. If you use regular JavaScript variables, you would need to manually handle updates and trigger re-renders, which can be error-prone and tedious.
+    
+    **Immutability:**
+    
+    - React encourages the use of immutable data structures for state. When you update the state using **`setState`**, React creates a new state object, ensuring that the original state remains unchanged. This helps prevent unintended side effects and makes it easier to reason about the application's state changes.
+</aside>
+
+### Search Bar Feature Implementation:
+
+![alt text](image-15.png)
+
+**so , Wrote an input type - text with the value set to local variable ‘searchText’ and onChange event , we are updating ‘searchText’ local variable with set function.**
+
+**NOTICE: Every time on key press for typing, we are updating state variable, hence it will re-render the entire Body component on every key press but only updated the input value(difference obtained from diff algorithm in reconciliation cycle)**
+
+<aside>
+💡 **Whenever a state variable changes/updates, React triggers a reconciliation cycle(difference between older virtual DOM and updated virtual DOM and the difference is reflected in actual DOM)**
+
+</aside>
+
+**React reconciliation / React fibre is making the app faster.**
+
+---
+
+---
+
+---
+
+and on clicking search button, we will filter filteredRestaurant based on searchText, not the original list i.e. obj.
+
+![alt text](image-16.png)
+we will have one more state variable to have filteredrestaurants initialised to empty list, then along with original list, we will save data in the filtered list also in fetchData API.
+
+And then always filter the original list and setting data to the filter set function.
+
+![alt text](image-17.png)
+
+On UI , we will always display filtered restaurants.
+
+This is how filtering is achieved by creating a copy of original list , filtering through original but displaying filtered list.
