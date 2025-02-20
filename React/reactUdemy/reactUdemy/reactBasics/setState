@@ -1,0 +1,93 @@
+**setState()**
+
+We can add event handlers with **on** followed by event name with capitalize then = followed by a block of javaScript code . For eg: 
+
+```jsx
+onClick ={ () ⇒ {
+
+this.state.name = 'Jain' ;
+
+console.log(this.state)
+
+} }
+```
+
+On console , it will show the [state.name](http://state.name) as ‘jain’ but on click of button it will still render ‘Kinjal’ . This is so because it is still the same object in the memory , it is still pointing to the object with older value in memory . So to fix this , in react , we will need a complete new state object in memory and then react will update and render.
+
+This can be done using **setState. setState performs shallow merge.**
+
+It means it will take the object(new object) and will match with the existing objects having similar keys and update the value .
+
+eg. 
+
+```jsx
+<button onClick={()=> {this.setState({name:'Jain'});
+	console.log(this.state);}}>
+          Change Name
+        </button>
+```
+
+React now detects that state is now a different object in memory so it re-renders the component.
+
+<aside>
+💡 In React, the **`setState()`** method is used to update the state of a component. When you call **`setState()`**, it merges the provided state object with the current state of the component. By default, this merging process is a shallow merge. **A shallow merge means that only the top-level properties of the state object are merged. If the state object contains nested objects or arrays, the merging process does not perform a deep comparison or merge of their contents. Instead, it simply replaces the nested objects or arrays in the state with the new ones.  That’s why specify the nested key also in setState() function**
+
+</aside>
+
+```jsx
+// Initial state
+state = {
+  user: {
+    name: 'John',
+    age: 25,
+  },
+  isLoggedIn: true,
+};
+
+// Updating state using shallow merge
+this.setState({
+  user: {
+    age: 26,
+  },
+});
+
+// Resulting state after merge
+state = {
+  user: {
+    age: 26,  // Replaced the entire nested object
+  },
+  isLoggedIn: true,
+};
+```
+
+NOTE: It only updates the keys which are passes to setState , not other keys
+
+```jsx
+<button onClick={()=> {this.setState({name:'Jain'});
+	console.log(this.state);}}>
+          Change Name
+        </button>
+```
+
+This code above will print {name : ‘Kinjal’ } in console . This is so because on click , console statement is executed first as the **setState() is an asynchronous call. That’s why the state will be updated lates and on console , it will print previous name . After that if you ll click , it will print the new name since the state was updated.**
+
+<aside>
+💡 **Why setState() is asynchronous ?**
+
+In React, the **`setState()`** function is designed to be asynchronous for performance reasons. This allows React to optimize and batch state updates to improve rendering performance.
+
+When you call **`setState()`**, React doesn't immediately update the state and re-render the component. Instead, it queues the state update requests and performs them in a batch or at a later point in time. This batching mechanism allows React to optimize and combine multiple state updates into a single update(lets say we have multiple components using this state then ,everywhere this state needs to be updated), reducing the number of re-renders and improving overall performance.
+
+</aside>
+
+Now , if I want to have the newer state to be logged on console , basically making setState() synchronous then instead of passing object to setState () , pass a function . So in this case , it will take a function and a callback function.
+
+this.setState(()⇒{}, ()⇒ {});
+
+The first function is an updater function takes two optional arguments **state**(which is current state) and **props** and return the updated state object  return {name: ‘Jain’} . The console.log() statement will be written in callback function which will be executed after the updator function has done execution.
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e9c8d408-25ed-496e-9bf7-9ae94f839f3e/Untitled.png)
+
+Now , on console, it will log ‘Jain’
+
+**NOTE:** the callback function is also optional

@@ -1,0 +1,14 @@
+Context and Reducer are two different concepts in React that are often used together for state management. Here's an overview of their differences:
+
+1. Context:
+Context API is a built-in mechanism in React that allows you to share global data (state) and pass it down to components in the app's component 
+tree without using prop-drilling (passing props down manually through each intermediate component). It primarily consists of the 
+`React.createContext` function, which creates a new context object with a `Provider` and a `Consumer` (or the `useContext` hook) for
+ accessing the data within.
+
+2. Reducer:
+A reducer is a pure function often used with Redux (or with the `useReducer` hook) for managing state. It takes the current state and
+ an action object as arguments, and then returns a new state based on the action. Reducers enforce a consistent and predictable manner of 
+ handling state changes in a Redux store or the `useReducer` hook.
+
+ /Users/kinjaljain/Desktop/reactUdemy/reactUdemy/image.png

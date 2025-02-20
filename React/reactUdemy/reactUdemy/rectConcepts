@@ -1,0 +1,43 @@
+## React Concepts
+
+Earlier traditionally whenever we do a single change we have to request the entire page to the server , this gave birth to the concept of single page application. Then google created Angular js to build large massive applications in a component/container like structure. But as angular applications grew larger and larger , developers found it difficult to find the bugs because data was flowing everywhere. Facebook is a vast application and Facebook engineers found it difficult to handle their application , that’s why they came up with react library in 2013. Then very large companies like uber , netflix , airBNB ,paypal, pinterest started using react. React now has become most powerful front end tool.
+
+1. **Imperative vs Declarative**
+    
+    In **Imperative approach** , we response to the user events and change or modify the DOM like if user === isloggedIn , then display profile image , in this case we ourselves are manipulating or changing the DOM , it becomes very complex when there are a number of user events changing the DOM directly.
+    
+    React follows **declarative approach** , it says **DONT TOUCH THE DOM** , I WILL DO IT. In react , we define a large Javascript object  , where we define the state of the application that page should look like this , we ourselves never change the DOM. That’s why the name came as React , how it reacts(modify DOM himself) when we declare something.
+    
+2. **Component Architecture**
+    
+    React is all about small components building together larger components, In react , components are simply javascript functions that receives some sort of inputs or attributes and returns HTML.
+    
+    **Build websites like lego blocks.**
+    
+    **let state = {
+    isLoggedIn : true,**
+    
+    **friends : [a,b,c]**
+    
+    **}** —> **function Welcome(props) {**
+    
+    **return  <h1>hello, {props.name} </h1>**
+    
+    **}**
+    
+    **NOTE: Install React developer tools in chrome web store.**
+    
+    This component architecture allows to re-use and share components.
+    
+3. **Unidirectional data flow:**
+    
+    HTML like syntax in Javascript is called as **JSX**.
+    
+    The data flows only in one direction from the state to the DOM , if some button is clicked , the state will change combined with components and the DOM will be manipulated with the changed state. So , the data here is always unidirectional which adds a restriction. That’s why , it becomes very easy to debug the code.
+    
+4. UI library
+    
+    Using React core library and React DOM library , these are two main libraries.
+
+
+

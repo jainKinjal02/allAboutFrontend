@@ -1,0 +1,29 @@
+## Testing
+
+Testing can be grouped in three type:
+
+1. **Unit Tests** - cover all small pure functions - functional programming. A pure function has no side effect.
+2. **Integrated Tests -** cross communications between different units , servers , libraries.
+3. **Automation Tests (UI Tests) -** Tests real life scenarios , how things actually working on website.
+
+
+### Jest Library : Testing React Applications
+
+```
+Jest is a delightful JavaScript testing framework developed and regularly maintained by Facebook. It's used by many projects inside and outside of Facebook such as React and React Native, and it's one of the libraries recommended for testing React applications.
+
+Jest provides the complete set of features designed for testing JavaScript code and React applications, making it a good choice for tasks like:
+
+- Writing synchronous and asynchronous tests.
+- Mocking and spying function calls.
+- Mocking modules.
+- Checking that objects match a certain structure with "matchers".
+- Running tests in a "watch" mode that automatically reruns tests when corresponding files change.
+
+Here's an example of a Jest test from the React codebase:
+```
+
+### Enzyme Library
+Enzyme is a JavaScript Testing utility for React developed by Airbnb that makes it easier to test your React Components' output. It allows you to manipulate, traverse, and in some ways simulate runtime given the output.
+
+Enzyme's API is meant to be intuitive and flexible by mimicking jQuery's API for DOM manipulation and traversal. It provides a nice way to test React components in an isolated way and provides a more granular approach compared to snapshot testing.

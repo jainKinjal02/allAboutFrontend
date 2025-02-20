@@ -1,0 +1,59 @@
+1. **useCallback Hook** 
+    
+    **`The `useCallback` hook in React is a hook that will return a memoized version of the callback function that only changes if one of 
+    the dependencies has changed. It's useful when passing callbacks to optimized child components that rely on reference equality to prevent 
+    unnecessary renders.`**
+
+2. **useMemo Hook**
+    
+    **``useMemo` is a hook in React that returns a memoized value. It is used to optimize performance by preventing expensive computations 
+    from running on every render. It will only recompute the memoized value when one of the dependencies changes.`**
+
+3. React Developer Profiling
+    React Developer Tools is a Chrome DevTools extension for the open-source React JavaScript library. It allows you to inspect the React component hierarchies in the Chrome Developer Tools.
+
+    When React Developer Tools are used in profiling, it records performance information about your React app. This helps in understanding the nuances of how your app renders, as well as finding and fixing performance bottlenecks.
+
+    To start profiling, you can open your application in chrome, open the React Developer Tools, click to the "Profiler" tab and press the "start profiling" button.
+
+    After you interact with your app, the rendering timeline will be shown, including render duration, commit phase duration, and which components were updated. Each bar in the timeline represents a React render and provides insightful information such as component's props and state, what triggered the render etc.
+
+4. Dynamic Imports, Suspense and Lazy
+    Dynamic imports, Suspense and lazy are all features of React utilized for performance optimization and better user experience. Let's dive a bit deeper into each of them:
+
+    1.Dynamic Imports: This is a syntax that allows you to load modules on demand. Unlike static import, dynamic import provides flexibility and efficiency as you can import the code when it's needed rather than loading it upfront. In React, dynamic imports are most commonly used with route components. Here's an example in the context of `CreateReactApp`
+    import('./math').then(math => {
+        console.log(math.add(16, 26));
+        });
+    
+    2. React.Suspense: React.Suspense allows your components to “wait” for something before rendering. It's a way to suspend rendering and display a loading indicator while waiting for some data to arrive. Currently, Suspense only supports lazily loaded components with `React.lazy()` and doesn't support data fetching.
+
+    import React, { Suspense } from 'react';
+
+    const ProfileDetail = React.lazy(() => import('./ProfileDetail')); // lazily load with React.lazy
+
+    function MyComponent() {
+    return (
+        <div>
+        <Suspense fallback={<div>Loading...</div>}>
+            <ProfileDetail />
+        </Suspense>
+        </div>
+    );
+    }
+
+    3.React.lazy(): React.lazy is a function that allows you to load React components lazily through code-splitting, without the need of any auxiliary libraries. A lazily loaded component initializes when it's required for the first time, providing performance benefits to your application as the user is only downloading what's necessary. The downside is that it only works with the default exports. Here is how it can be used:
+    import React, { Suspense } from 'react';
+
+        // this component is loaded lazily
+        const OtherComponent = React.lazy(() => import('./OtherComponent'));
+
+        function MyComponent() {
+        return (
+            <div>
+            <Suspense fallback={<div>Loading...</div>}>
+                <OtherComponent />
+            </Suspense>
+            </div>
+        );
+        }

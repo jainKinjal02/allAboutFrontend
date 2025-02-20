@@ -1,0 +1,33 @@
+### React Folder Structure
+
+1. The entry point for every react application is **index.js**
+2. index.html is inside public folder.
+3. npm build generate a optimized built code for us which can be used for users , a new build folder is created having the optimized files and code.
+4. Components in react are simply functions which returns HTML. 
+
+
+1. Hooks are only in React.
+2. Function components are written in **jsx** . 
+3. **JSX is simply syntax extension of javascript**
+
+
+this is class components , this also works the same , basically it works for rendering.
+
+There are two ways to write React :
+
+1. **Functional Component** : Using Jsx returns what we want to render.
+2. **Class Components** : To use class components , **import { Component } from ‘react’ ;**
+    
+    And the code is modified as followed , the class component has a render() method
+    
+    ```jsx
+    class App extends Component{
+    	render(){
+    	return (
+        <div> Hello </div>
+    );
+    }
+    ```
+    
+    }
+    

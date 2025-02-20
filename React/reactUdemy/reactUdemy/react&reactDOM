@@ -1,0 +1,15 @@
+React and ReactDOM are two separate packages provided by React for building user interfaces, but they serve different purposes:
+
+1. **React**: React is a JavaScript library for building user interfaces. It provides a declarative and component-based approach to constructing UIs. 
+React allows you to create reusable UI components and manage their state and lifecycle. It handles the virtual DOM diffing and reconciliation process 
+efficiently, updating only the necessary parts of the UI when the state or props change. React is framework-agnostic and can be used with various 
+frameworks or even without any framework.
+
+2. **ReactDOM**: ReactDOM is a package that provides the necessary methods for rendering React components into the browser's DOM 
+(Document Object Model). It acts as the glue between React and the actual DOM. ReactDOM provides methods such as **`ReactDOM.render()`** to render 
+a React component into a specific DOM element, **`ReactDOM.hydrate()`** for server-side rendering hydration, and **`ReactDOM.unmountComponentAtNode()`** 
+to unmount a React component from a DOM element.
+In summary, React is the core library that handles the logic and rendering of components, while ReactDOM is a package that facilitates the 
+rendering of React components into the browser's DOM. 
+You typically import both React and ReactDOM in your application, with React being used for building components and managing their state, and
+ ReactDOM used for rendering those components into the actual HTML DOM.

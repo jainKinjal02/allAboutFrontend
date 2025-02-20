@@ -1,0 +1,34 @@
+Redux is a predictable state container for JavaScript apps. It's an open-source library that allows you to manage and manipulate the state 
+of your application in a predictable way. Redux helps you manage global state - state that is used across many components or screens.
+
+The idea is that you have a single "store" where your entire application's state lives. Components dispatch actions, which tell Redux the 
+changes they want to make to the state, and then reducers respond to those actions to produce a new state.
+
+Here is the most basic use of Redux, which is containing the application state in a store:
+
+import { createStore } from 'redux'
+
+// This is a reducer, a pure function with (state, action) => state signature.
+// It describes how an action transforms the state into the next state.
+function counter(state = 0, action) {
+  switch (action.type) {
+    case 'INCREMENT':
+      return state + 1
+    case 'DECREMENT':
+      return state - 1
+    default:
+      return state
+  }
+}
+
+// Create a Redux store holding the state of your app.
+// Its API is { subscribe, dispatch, getState }.
+let store = createStore(counter)
+
+// The only way to mutate the internal state is dispatch an action.
+// The actions can be serialized, logged or stored and later replayed.
+store.dispatch({ type: 'INCREMENT' })
+
+**`Redux can be used alongside any view library, but it's most commonly used with React. There are bindings such as React-Redux that let you interact with your Redux store in a way that's idiomatic for React.`**
+
+**NOTE: Redux is basically global state management**

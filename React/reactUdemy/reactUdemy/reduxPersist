@@ -1,0 +1,5 @@
+Redux Persist is a library that allows you to save the Redux store in the local storage of your browser or any other storage provider in web or 
+React Native. When the page is refreshed, it rehydrates the state of your app to the most recent state saved in local storage.
+
+In simple terms, Redux Persist makes the state of your app persist over page reloads or app restarts. This is especially useful if you want to 
+maintain user interface state, like navigation stacks or even data cached, across sessions, without needing to save and load it from a server every time.

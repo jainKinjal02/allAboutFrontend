@@ -1,0 +1,12 @@
+### npm vs npx
+
+npm is a installational and executional environment.
+
+**`npm`**is used for package management, while **`npx`**
+ is used to execute packages without installing them.
+
+**`npm`** is the package manager for Node.js. It is used to install, manage, and publish Node.js packages. When you install a package using **`npm`**, it is installed globally on your system or locally in a specific project directory. **`npm`** is used to manage dependencies for your project.
+
+**`npx`**, on the other hand, is a package runner that comes bundled with **`npm`**. It is used to execute packages without installing them. **`npx`** lets you run command-line tools and scripts that are published in the npm registry, without having to install them globally or locally. **`npx`** can be used to run command-line tools such as linters, compilers, test runners, and more, without worrying about installing or managing dependencies.
+
+NOTE: we download in npm and then execute it while in npx we can directly execute it without downloading/installing the package but in background npx actually downloads the package , executes it and then deletes it. So after npx cpmmand if you check the npm list or —v command , it will show nothing or empty.
